@@ -12,8 +12,8 @@ namespace One2Team
         // creation card with specific cardName 
         public void CreateCard(string _cardName)
         {
-            wait.Until(ExpectedConditions.ElementExists(menuButton));
-            Thread.Sleep(5000);
+            wait.Until(ExpectedConditions.ElementExists(By.CssSelector("div.containCol__col__card")));
+            //Thread.Sleep(5000);
             driver.FindElement(By.CssSelector(".containCol__col__plus__center__icon")).Click();
 
             wait.Until(ExpectedConditions.ElementExists(detailCard));
@@ -28,7 +28,6 @@ namespace One2Team
         {
             var container = driver.FindElements(colon).ElementAt(0);
             Thread.Sleep(3000);
-
             try { container.FindElements(cardText).First(e => e.Text == _cardName); }
             catch (NoSuchElementException) { return false; }
             catch (StaleElementReferenceException) { return false; }
@@ -45,7 +44,6 @@ namespace One2Team
             Actions ac = new Actions(driver);
             ac.DragAndDrop(parent, driver.FindElements(colon).ElementAt(_targetColon));
             ac.Build().Perform();
-
             Thread.Sleep(5000);
 
             container = driver.FindElements(colon).ElementAt(_targetColon);
@@ -67,7 +65,7 @@ namespace One2Team
         {
             AutoItX3 autoIt = new AutoItX3();
             autoIt.WinActivate("Ouvrir");
-            Thread.Sleep(1000);
+            Thread.Sleep(1000);  // tempo to have the time to write the path 
             autoIt.Send(_path);
             autoIt.Send("{ENTER}");
         }
