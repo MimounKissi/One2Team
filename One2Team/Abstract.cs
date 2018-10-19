@@ -16,9 +16,9 @@ namespace One2Team
         public static string _userName = "candidat";
         public static string _passWord = "Candidat1*";
         public static string _domainName = "telco";
-        public static string _cardName = "Test Card - Mimoun 16";
+        public static string _cardName = "Test Card - Mimoun 21";
         public static int _elementColon = 0;
-        public static int _targerColon = 5;
+        public static int _targerColon = 2;
         public static string _path = @"C:\Users\MimounKISSI\Desktop\QA.png";
 
         // LOCATOR 

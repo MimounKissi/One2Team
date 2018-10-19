@@ -26,7 +26,7 @@ namespace One2Team
             // Manage Card
             // Create Card
             manageCard.CreateCard(_cardName);
-
+            
             // Card Creation Verification
             Assert.IsTrue(manageCard.IsCardExist(_cardName));
 

@@ -13,7 +13,6 @@ namespace One2Team
         public void CreateCard(string _cardName)
         {
             wait.Until(ExpectedConditions.ElementExists(By.CssSelector("div.containCol__col__card")));
-            //Thread.Sleep(5000);
             driver.FindElement(By.CssSelector(".containCol__col__plus__center__icon")).Click();
 
             wait.Until(ExpectedConditions.ElementExists(detailCard));
@@ -26,8 +25,12 @@ namespace One2Team
         // verification card is created 
         public bool IsCardExist(string _cardName)
         {
-            var container = driver.FindElements(colon).ElementAt(0);
+
+            // Tempo - create finish
             Thread.Sleep(3000);
+
+            var container = driver.FindElements(colon).ElementAt(0);
+
             try { container.FindElements(cardText).First(e => e.Text == _cardName); }
             catch (NoSuchElementException) { return false; }
             catch (StaleElementReferenceException) { return false; }
